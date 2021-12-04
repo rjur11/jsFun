@@ -39,11 +39,14 @@ const kittyPrompts = {
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = "REPLACE WITH YOUR RESULT HERE";
+    const result = kitties.sort((a, b) => b.age - a.age);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    /*
+      sort kitties by their age, backwards
+      sort takes a,b and for reverse order, we'll need to check b-a
+    */
   },
 
   growUp() {
@@ -60,8 +63,13 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = "REPLACE WITH YOUR RESULT HERE";
-    return result;
+    return kitties
+      .map((kitty) => {
+        const newKitty = Object.assign({}, kitty);
+        newKitty.age += 2;
+        return newKitty;
+      })
+      .sort((a, b) => b.age - a.age);
   },
 };
 
