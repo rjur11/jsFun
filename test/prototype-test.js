@@ -82,7 +82,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Club Prompts", () => {
-    it.only("membersBelongingToClubs", () => {
+    it("membersBelongingToClubs", () => {
       const e = clubPrompts.membersBelongingToClubs({
         Louisa: ["Drama", "Art"],
         Pam: ["Drama", "Chess", "Newspaper"],
@@ -136,7 +136,7 @@ describe("PROTOTYPES", () => {
     });
   });
 
-  describe("Cake Prompts", () => {
+  describe.only("Cake Prompts", () => {
     it("stockPerCake", () => {
       const e = cakePrompts.stockPerCake();
 
