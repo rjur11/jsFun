@@ -263,7 +263,9 @@ const classPrompts = {
     //   { roomLetter: 'G', program: 'FE', capacity: 29 }
     // ]
 
-    const result = "REPLACE WITH YOUR RESULT HERE";
+    const result = classrooms.filter((classroom) => {
+      return classroom.program === "FE";
+    });
     return result;
 
     // Annotation:
@@ -278,7 +280,20 @@ const classPrompts = {
     //   beCapacity: 96
     // }
 
-    const result = "REPLACE WITH YOUR RESULT HERE";
+    const result = classrooms.reduce((acc, classroom) => {
+      if (!acc.feCapacity) {
+        acc.feCapacity = 0;
+      } else if (!acc.beCapacity) {
+        acc.beCapacity = 0;
+      }
+      if (classroom.program === "FE") {
+        acc.feCapacity += classroom.capacity;
+      } else {
+        acc.beCapacity += classroom.capacity;
+      }
+      return acc;
+    }, {});
+
     return result;
 
     // Annotation:
